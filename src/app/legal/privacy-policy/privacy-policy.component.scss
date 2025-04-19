@@ -1,0 +1,77 @@
+.text-page {
+    background-color: #111;
+    color: white;
+    padding-left: 96px;
+    padding-right: 96px;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 32px;
+
+    .logo {
+        width: 200px;
+        height: 32px;
+        padding-top: 38px;
+    }
+
+    .back-arrow {
+        position: absolute;
+        top: 30px;
+        right: 96px;
+        width: 48px;
+        height: 48px;
+        cursor: pointer;
+    }
+
+    h1 {
+       font-size: 32px;
+       font-weight: 700; 
+       margin-top: 86px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #ccc;
+    }
+
+
+    h2 {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 12px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #ccc;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .logo {
+      content: url('/assets/img/Logo_short.png');
+      padding-top: 38px;
+      width: 48px !important;
+      height: 48px !important;
+    }
+  
+    .text-page {
+      padding-left: 16px;
+      padding-right: 16px;
+
+      .back-arrow {
+        right: 16px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      a {
+        font-size: 14px;
+      }
+  }
+  
+  }

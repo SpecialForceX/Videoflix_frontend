@@ -1,0 +1,66 @@
+<div class="background_img_login">
+  <div class="overlay"></div>
+  <header>
+    <a routerLink="/">
+      <img class="header_logo" src="/assets/img/Logo.png" alt="Videoflix Logo" />
+    </a>
+  </header>
+  
+  <div class="login_container">
+    <div class="login_box">
+      <h2>Log in</h2>
+
+      <form (ngSubmit)="onSubmit()" #form="ngForm">
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          placeholder="Email address"
+          required
+          email
+          #emailInput="ngModel"
+        />
+        <p class="error-message" *ngIf="emailInput.invalid && emailInput.touched">
+          Please enter a valid email address.
+        </p>
+
+        <div class="password-input-wrapper">
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            name="password"
+            [(ngModel)]="password"
+            placeholder="Password"
+            required
+          />
+          <img
+            [src]="showPassword ? '/assets/img/eye_open.svg' : '/assets/img/eye_close.svg'"
+            (click)="togglePasswordVisibility()"
+            class="eye-icon"
+            alt="Toggle password visibility"
+          />
+        </div>
+
+        <button
+          type="submit"
+          [disabled]="form.invalid || emailInput.invalid"
+          [class.disabled]="form.invalid || emailInput.invalid"
+        >
+          Log In
+        </button>
+      </form>
+
+      <a class="forgot" routerLink="/password-reset">Forgot password?</a>
+
+      <p class="signup-text">
+        New to Videoflix?
+        <a class="signup-link" routerLink="/register">Sign Up now</a>
+      </p>
+
+      <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    </div>
+  </div>
+  <footer>
+    <a routerLink="/datenschutz">Privacy Policy</a>
+    <a routerLink="/impressum">Imprint</a>
+</footer>
+</div>

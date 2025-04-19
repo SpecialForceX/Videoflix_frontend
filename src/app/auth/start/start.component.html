@@ -1,0 +1,28 @@
+<div class="background_img_start">
+    <div class="overlay"></div>
+
+    <header>
+        <img class="header_logo" src="/assets/img/Logo.png" alt="Videoflix Logo" />
+        <div class="login_container">
+            <a class="login-button" routerLink="login">Log in</a>
+        </div>
+    </header>
+
+    <div class="start_container">
+        <h1>Movies, TV shows, and more</h1>
+        <p>Enter your email to create or restart your subscription.</p>
+
+        <form (ngSubmit)="onEmailSubmit()" #emailForm="ngForm">
+            <input type="email" name="email" [(ngModel)]="email" placeholder="Email Address" required />
+            <button type="submit">
+                Sign Up
+                <img src="/assets/img/chevron_right.png" alt="" />
+            </button>
+        </form>
+    </div>
+
+    <footer>
+        <a routerLink="/datenschutz">Privacy Policy</a>
+        <a routerLink="/impressum">Imprint</a>
+    </footer>
+</div>

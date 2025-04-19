@@ -1,0 +1,68 @@
+<div class="dashboard-wrapper">
+    <!-- Header -->
+    <header class="dashboard-header">
+        <img src="/assets/img/Logo_short.png" alt="Logo" class="logo" />
+        <div class="logout_container">
+            <button class="logout-btn" (click)="logout()">
+                <img src="/assets/img/logout_icon.png" alt="Log out" />
+                Log Out
+            </button>
+        </div>
+
+    </header>
+
+    <!-- Hero Video Section -->
+    <section class="hero" *ngIf="heroVideo">
+        <video class="hero-video" autoplay muted loop playsinline [src]="mediaUrl + heroVideo.video_file"
+            *ngIf="!showPlayer"></video>
+
+        <!-- ✅ Schwarzer Overlay -->
+        <div class="hero-dark-overlay"></div>
+        <div class="hero-overlay">
+            <h1>{{ heroVideo.title }}</h1>
+            <p>{{ heroVideo.description }}</p>
+            <button class="play-btn" (click)="openPlayer()">▶ Play</button>
+
+        </div>
+    </section>
+
+    <!-- Neuer Bereich: New on Videoflix -->
+    <div class="new-on-videoflix" *ngIf="videos.length > 0 ">
+        <h2>New on Videoflix</h2>
+        <div class="new-videos-slider" draggable="false" #sliderRef>
+            <div class="new-video-card" *ngFor="let video of newestVideos" (click)="setHeroVideo(video)">
+                <img [src]="mediaUrl + video.thumbnail" alt="Thumbnail" draggable="false" />
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Genre Sections -->
+    <div class="genre-section" *ngFor="let genre of groupedVideos | keyvalue">
+        <h2>{{ genre.key }}</h2>
+        <div class="video-slider" draggable="false" #genreSlider>
+            <div class="video-card" *ngFor="let video of genre.value" (click)="setHeroVideo(video)">
+                <img [src]="mediaUrl + video.thumbnail" alt="Thumbnail" draggable="false" />
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ Video Player Modal -->
+    <div class="video-player-overlay" *ngIf="showPlayer">
+        <div class="video-player-header">
+            <button class="back-btn" (click)="closePlayer()">←</button>
+            <span class="optimization-msg" *ngIf="optimizationMessageVisible">Optimizing video for your screen 40%</span>
+            <img src="/assets/img/Logo_short.png" class="corner-logo" />
+        </div>
+
+        <video id="videoplayer" class="video-js vjs-default-skin player-video" controls preload="auto" autoplay></video>
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <a routerLink="/datenschutz">Privacy Policy</a>
+        <a routerLink="/impressum">Imprint</a>
+    </footer>
+</div>

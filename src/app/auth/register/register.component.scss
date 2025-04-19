@@ -1,0 +1,243 @@
+.background_img_register {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url('/assets/img/signup_background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.55) 55%,
+            rgba(0, 0, 0, 0.8));
+    z-index: 1;
+}
+
+.header {
+    z-index: 2;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 96px;
+    padding-right: 96px;
+}
+
+.header_logo {
+    width: 200px;
+    height: 32px;
+    cursor: pointer;
+    padding-top: 38px;
+}
+
+.login_container {
+    padding-top: 30px;
+}
+
+.header_login_btn {
+    background-color: #2E3EDF;
+    color: white;
+    border-radius: 40px;
+    border: none;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 12px 24px 12px 24px;
+
+    &:hover {
+        background-color: #1f2fbf;
+    }
+
+}
+
+.register_container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 140px);
+    z-index: 2;
+}
+
+.register_box {
+    background-color: white;
+    border-radius: 48px;
+    padding: 43px 56px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #2E3EDF;
+    margin-bottom: 32px;
+    margin-top: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+
+    input {
+        height: 48px;
+        width: 93%;
+        border-radius: 12px;
+        border: 1px solid #2E3EDF;
+        padding-left: 24px;
+        font-size: 18px;
+        font-weight: 400;
+        color: #2E3EDF;
+
+        &::placeholder {
+            color: #2E3EDF;
+        }
+    }
+
+    button {
+        background-color: #2E3EDF;
+        color: white;
+        height: 48px;
+        width: 218px;
+        border-radius: 40px;
+        border: none;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover:not(:disabled) {
+            background-color: #1f2fbf;
+        }
+
+        &.disabled,
+        &:disabled {
+            background-color: #a8a8a8;
+            cursor: not-allowed;
+        }
+    }
+}
+
+.password-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    input {
+        flex: 1;
+        padding-right: 40px;
+    }
+
+    .eye-icon {
+        position: absolute;
+        right: 24px;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: opacity 0.2s ease-in-out;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.error-message {
+    color: red;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+footer {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    bottom: 50px;
+    z-index: 2;
+    width: 100%;
+
+    a {
+        color: white;
+        padding-left: 24px;
+        padding-right: 24px;
+        font-size: 18px;
+        font-weight: 500;
+        text-decoration: none;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .header_logo {
+        content: url('/assets/img/Logo_short.png');
+        padding-top: 38px;
+        width: 48px !important;
+        height: 48px !important;
+    }
+
+    header {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .register_box {
+        margin-left: 16px;
+        margin-right: 16px;
+        padding: 43px 24px 43px 24px;
+    }
+
+}
+
+@media (max-width: 430px) {
+    .password-input-wrapper {
+        width: 103%;
+    }
+}
+
+@media (max-width: 370px) {
+
+    .password-input-wrapper {
+        width: 105%;
+    }
+
+    .signup-text {
+        font-size: 16px;
+
+        .signup-link {
+            font-size: 16px;
+            margin-left: 8px;
+        }
+    }
+
+}
+
+@media (max-height: 667px) {
+    footer {
+      bottom: 30px;
+    }
+  }

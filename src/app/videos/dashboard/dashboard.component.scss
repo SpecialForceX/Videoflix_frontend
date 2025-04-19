@@ -1,0 +1,417 @@
+.dashboard-wrapper {
+    position: relative;
+    min-height: 100vh;
+    background-color: #141414;
+}
+
+.dashboard-wrapper::after {
+    content: '';
+    position: absolute;
+    top: calc(100vh - 200px);
+    /* ⬅️ Startpunkt direkt unter dem Hero-Video */
+    left: 0;
+    width: 100%;
+    height: 200px;
+    /* je nach Intensität des Übergangs */
+    z-index: 2;
+    pointer-events: none;
+
+    background: linear-gradient(to top,
+            #141414 0%,
+            rgba(20, 20, 20, 0.8) 40%,
+            rgba(20, 20, 20, 0.2) 80%,
+            transparent 100%);
+}
+
+.dashboard-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* Kein Hintergrund */
+    background: transparent;
+}
+
+.logo {
+    height: 48px;
+    object-fit: contain;
+    padding-left: 96px;
+    padding-top: 30px;
+}
+
+.logout-btn {
+    background-color: #2E3EDF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.logout_container {
+    padding-right: 96px;
+    padding-top: 30px;
+
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* 👈 Fullscreen */
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 2;
+    padding-left: 96px;
+    padding-top: 92px;
+    max-width: 600px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+
+    h1 {
+        font-size: 88px;
+        font-weight: 700;
+        padding-top: 92px;
+        margin: 0;
+        color: white;
+    }
+
+    p {
+        font-size: 16px;
+        font-weight: 400;
+        padding-top: 32px;
+        padding-bottom: 32px;
+        margin: 0;
+        color: white;
+    }
+
+    .play-btn {
+        background-color: #2E3EDF;
+        border: none;
+        border-radius: 40px;
+        padding: 12px 24px;
+        font-size: 18px;
+        font-weight: 700;
+        color: white;
+        cursor: pointer;
+        width: 113px;
+    }
+}
+
+/* ✅ Neuer schwarzer Overlay */
+.hero-dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); // Schwarz mit 40% Deckkraft
+}
+
+.new-videos-slider::-webkit-scrollbar {
+    width: 0;
+}
+
+.new-on-videoflix {
+    position: absolute;
+    top: calc(100vh - 232px);
+    left: 96px;
+    right: 96px;
+    z-index: 4;
+    color: white;
+
+    h2 {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+
+    .new-videos-slider {
+        display: flex;
+        gap: 16px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        user-select: none;
+        cursor: grab;
+        &.active {
+            cursor: grabbing;
+          }
+
+        .new-video-card {
+            min-width: 160px;
+            overflow: hidden;
+            flex-shrink: 0;
+            height: 120px;
+            width: 214px;
+
+            img {
+                width: 214px;
+                height: 120px;
+                object-fit: cover;
+            }
+
+            p {
+                font-size: 14px;
+                color: white;
+                padding: 8px;
+                margin: 0;
+            }
+        }
+    }
+
+
+}
+
+.video-card,
+.new-video-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+  }
+}
+
+
+.video-slider::-webkit-scrollbar {
+    width: 0;
+}
+
+.genre-section {
+    margin-top: 32px;
+    padding: 0 96px;
+
+    h2 {
+        font-size: 24px;
+        margin-bottom: 12px;
+        color: white;
+    }
+
+    .video-slider {
+        display: flex;
+        gap: 16px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        user-select: none;
+        cursor: grab;
+        &.active {
+            cursor: grabbing;
+          }
+
+        .video-card {
+            min-width: 160px;
+            overflow: hidden;
+            flex-shrink: 0;
+            height: 120px;
+            width: 214px;
+
+            img {
+                width: 214px;
+                height: 120px;
+                object-fit: cover;
+            }
+
+            p {
+                font-size: 14px;
+                margin: 8px;
+            }
+        }
+    }
+
+}
+
+.video-player-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: black;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .video-player-header {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    right: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+    z-index: 10;
+  
+    .back-btn {
+      background: transparent;
+      color: white;
+      border: none;
+      font-size: 32px;
+      cursor: pointer;
+    }
+  
+    .optimization-msg {
+      color: white;
+      font-weight: 400;
+      font-size: 14px;
+    }
+  
+    .corner-logo {
+      height: 32px;
+    }
+  }
+  
+  .player-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: black;
+  
+    /* fixes */
+    z-index: 3;
+    position: relative;
+  }
+  
+  
+  .video-title {
+    position: absolute;
+    bottom: 40px;
+    font-size: 18px;
+    color: white;
+    font-weight: 600;
+  }
+
+  .player-controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10; // 👈 über dem Player
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 8px;
+    border-radius: 8px;
+    color: white;
+  }
+  
+  .settings-panel {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    z-index: 11;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+  }
+  
+
+footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 48px;
+    margin-top: 64px;
+    font-size: 18px;
+    font-weight: 500;
+    padding-right: 96px;
+    padding-bottom: 40px;
+
+    a {
+        color: white;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+@media (max-width: 750px) {
+
+    .header_logo {
+      content: url('/assets/img/Logo_short.png');
+      padding-top: 38px;
+      width: 48px !important;
+      height: 48px !important;
+    }
+  
+    .logo {
+        padding-left: 16px;
+    }
+
+    .logout_container {
+        padding-right: 16px;
+    }
+
+    h1 {
+        font-size: 64px !important;
+    }
+
+    .hero-overlay {
+        position: relative;
+        z-index: 2;
+        padding-left: 16px;
+        padding-top: calc(100vh - 690px);
+        max-width: 600px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .new-on-videoflix {
+        position: unset;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .genre-section {
+        padding: 0 16px;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    h1 {
+        font-size: 48px !important;
+    }
+
+    footer {
+        display: flex;
+        justify-content: center;
+        padding-right: 0;
+    }
+}

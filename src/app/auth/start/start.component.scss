@@ -1,0 +1,241 @@
+.background_img_start {
+    background-image: url('/assets/img/start_background.jpg'); // optional austauschbar
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    color: white;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 96px;
+    padding-right: 96px;
+
+    .header_logo {
+        padding-top: 38px;
+        width: 200px;
+        height: 32px;
+    }
+
+
+    .login-button {
+        background: #2E3EDF;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 40px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 18px;
+    }
+}
+
+.login_container {
+    padding-top: 30px;
+}
+
+.start_container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 20px;
+    height: calc(100vh - 140px);
+
+    h1 {
+        font-size: 48px;
+        font-weight: 700;
+        padding-bottom: 24px;
+        margin: 0;
+    }
+
+    p {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 400;
+        padding-bottom: 32px;
+    }
+
+    form {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+
+
+        input {
+            padding: 10px;
+            border-radius: 40px;
+            border: solid 1px white;
+            background-color: transparent;
+            width: 360px;
+            color: white;
+            font-size: 18px;
+            font-weight: 400;
+            padding-left: 24px;
+        }
+
+        ::placeholder {
+            color: white;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        button {
+            padding: 12px 24px;
+            background: #2E3EDF;
+            color: white;
+            border: none;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 24px;
+                height: 24px;
+                padding-left: 4px;
+            }
+        }
+    }
+}
+
+footer {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 2;
+
+    a {
+        color: white;
+        margin: 0;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 500;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .header_logo {
+        content: url('/assets/img/Logo_short.png');
+        padding-top: 38px;
+        width: 48px !important;
+        height: 48px !important;
+    }
+
+    header {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .start_container {
+    
+        h1 {
+            font-size: 40px;
+            font-weight: 700;
+            padding-bottom: 24px;
+            margin: 0;
+        }
+    
+        p {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 400;
+            padding-bottom: 32px;
+        }
+    
+        form {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+    
+    
+            input {
+                padding: 10px;
+                border-radius: 40px;
+                border: solid 1px white;
+                background-color: transparent;
+                color: white;
+                width: 320px;
+                font-size: 16px;
+                font-weight: 400;
+                padding-left: 24px;
+            }
+    
+            ::placeholder {
+                color: white;
+                font-size: 18px;
+                font-weight: 400;
+            }
+    
+            button {
+                padding: 12px 24px;
+                background: #2E3EDF;
+                color: white;
+                border: none;
+                border-radius: 40px;
+                font-weight: 700;
+                font-size: 18px;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+    
+                img {
+                    width: 24px;
+                    height: 24px;
+                    padding-left: 4px;
+                }
+            }
+        }
+    }
+
+}
+
+@media (max-width: 370px) {
+    .start_container {
+        form {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+    
+    
+            input {
+                width: 270px;
+            } 
+        }
+    }
+}
+
+@media (max-height: 667px) {
+    footer {
+      bottom: 30px;
+    }
+  }

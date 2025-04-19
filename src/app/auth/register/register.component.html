@@ -1,0 +1,87 @@
+<div class="background_img_register">
+    <div class="overlay"></div>
+
+    <header class="header">
+        <a routerLink="/">
+            <img class="header_logo" src="/assets/img/Logo.png" alt="Videoflix Logo" />
+        </a>
+        <div class="login_container">
+            <a routerLink="/login" class="header_login_btn">Log in</a>
+        </div>
+    </header>
+
+    <div class="register_container">
+        <div class="register_box">
+            <h2>Sign up</h2>
+
+            <form (ngSubmit)="onSubmit()" #form="ngForm">
+                <input
+                  type="email"
+                  name="email"
+                  [(ngModel)]="email"
+                  placeholder="Email address"
+                  required
+                  email
+                  #emailInput="ngModel"
+                />
+              
+                <p class="error-message" *ngIf="emailInput.invalid && emailInput.touched">
+                  Please enter a valid email address.
+                </p>
+              
+                <div class="password-input-wrapper">
+                  <input
+                    [type]="showPassword ? 'text' : 'password'"
+                    name="password"
+                    [(ngModel)]="password"
+                    placeholder="Enter a password"
+                    required
+                  />
+                  <img
+                    [src]="showPassword ? '/assets/img/eye_open.svg' : '/assets/img/eye_close.svg'"
+                    (click)="togglePasswordVisibility()"
+                    class="eye-icon"
+                    alt="Toggle password visibility"
+                  />
+                </div>
+              
+                <div class="password-input-wrapper">
+                  <input
+                    [type]="showConfirmPassword ? 'text' : 'password'"
+                    name="confirmPassword"
+                    [(ngModel)]="confirmPassword"
+                    placeholder="Confirm password"
+                    required
+                  />
+                  <img
+                    [src]="showConfirmPassword ? '/assets/img/eye_open.svg' : '/assets/img/eye_close.svg'"
+                    (click)="toggleConfirmPasswordVisibility()"
+                    class="eye-icon"
+                    alt="Toggle confirm password visibility"
+                  />
+                </div>
+              
+                <p class="error-message" *ngIf="password && confirmPassword && password !== confirmPassword">
+                  Passwords must match.
+                </p>
+              
+                <button
+                  type="submit"
+                  [disabled]="form.invalid || emailInput.invalid || password !== confirmPassword"
+                  [class.disabled]="form.invalid || emailInput.invalid || password !== confirmPassword"
+                >
+                  Get Started
+                </button>
+              </form>
+              
+              
+
+            <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+        </div>
+    </div>
+
+    <footer>
+        <a routerLink="/datenschutz">Privacy Policy</a>
+        <a routerLink="/impressum">Imprint</a>
+    </footer>
+</div>
