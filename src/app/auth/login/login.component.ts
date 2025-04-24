@@ -4,6 +4,9 @@ import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-login',
@@ -17,7 +20,12 @@ export class LoginComponent {
   password = '';
   errorMessage = '';
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private toastr: ToastrService
+  ) {}
 
   onSubmit() {
     this.authService.login(this.email, this.password).subscribe({
@@ -30,6 +38,15 @@ export class LoginComponent {
 
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
+  }
+
+  ngOnInit(): void {
+    const activated = this.route.snapshot.queryParamMap.get('activated');
+    if (activated === 'true') {
+      this.toastr.success('Dein Account wurde erfolgreich aktiviert.', 'Willkommen zurück!');
+    } else if (activated === 'false') {
+      this.toastr.error('Aktivierungslink ist ungültig oder abgelaufen.', 'Fehler');
+    }
   }
 
 }
