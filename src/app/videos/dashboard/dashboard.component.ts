@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import videojs from 'video.js';
 import 'videojs-http-source-selector';
 import 'videojs-contrib-quality-levels';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -35,7 +36,7 @@ declare module 'video.js' {
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule, RouterModule]
 })
 export class DashboardComponent implements OnInit, AfterViewChecked {
   videos: any[] = [];
@@ -147,7 +148,7 @@ export class DashboardComponent implements OnInit, AfterViewChecked {
         (window as any).player = player;
 
         const baseName = this.selectedVideo.video_file.split('/').pop()?.replace('.mp4', '');
-        const hlsPath = `${this.mediaUrl}media/videos/hls/${baseName}/master.m3u8`;
+        const hlsPath = `${this.mediaUrl}/media/videos/hls/${baseName}/master.m3u8`;
 
         player.src({
           src: hlsPath,
@@ -177,7 +178,7 @@ export class DashboardComponent implements OnInit, AfterViewChecked {
         const levels = player.qualityLevels?.();
 
         if (levels) {
-          const levelsArray = Array.from(levels); // 💡 Jetzt ein echtes Array
+          const levelsArray = Array.from(levels);
 
           const active = levelsArray.find((q) => q.enabled);
           if (active?.height) {
@@ -210,7 +211,7 @@ export class DashboardComponent implements OnInit, AfterViewChecked {
   logout(): void {
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
-    window.location.href = '/login';
+    window.location.href = '/videoflix/login';
   }
   
 }

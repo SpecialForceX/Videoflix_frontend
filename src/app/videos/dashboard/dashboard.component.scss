@@ -352,17 +352,14 @@ footer {
     a {
         color: white;
         text-decoration: none;
-
-        &:hover {
-            text-decoration: underline;
-        }
+        cursor: pointer;
     }
 }
 
 @media (max-width: 750px) {
 
     .header_logo {
-      content: url('/assets/img/Logo_short.png');
+      content: url('../../../assets/img/Logo_short.png');
       padding-top: 38px;
       width: 48px !important;
       height: 48px !important;

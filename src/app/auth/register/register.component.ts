@@ -30,6 +30,8 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  successMessage = '';
+
   onSubmit() {
     if (this.password !== this.confirmPassword) {
       this.errorMessage = 'Passwords do not match.';
@@ -37,11 +39,18 @@ export class RegisterComponent implements OnInit {
     }
 
     this.authService.register(this.email, this.password).subscribe({
-      next: () => this.router.navigate(['/dashboard']),
+      next: (res) => {
+        console.log('✅ Registrierung erfolgreich:', res);
+        this.successMessage = 'Please check your email to activate your account.';
+        this.errorMessage = '';
+      },
       error: (err) => {
+        console.error('❌ Fehler bei Registrierung:', err);
         this.errorMessage = 'Registration failed. Please try again.';
+        this.successMessage = '';
       },
     });
+    
   }
 
   showPassword = false;

@@ -2,7 +2,7 @@
   <div class="overlay"></div>
   <header>
     <a routerLink="/">
-      <img class="header_logo" src="/assets/img/Logo.png" alt="Videoflix Logo" />
+      <img class="header_logo" src="assets/img/Logo.png" alt="Videoflix Logo" />
     </a>
   </header>
   
@@ -33,7 +33,7 @@
             required
           />
           <img
-            [src]="showPassword ? '/assets/img/eye_open.svg' : '/assets/img/eye_close.svg'"
+            [src]="showPassword ? 'assets/img/eye_open.svg' : 'assets/img/eye_close.svg'"
             (click)="togglePasswordVisibility()"
             class="eye-icon"
             alt="Toggle password visibility"

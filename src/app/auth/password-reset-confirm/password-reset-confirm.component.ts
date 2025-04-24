@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { environment } from '../../../environments/environment';
+
 
 @Component({
   selector: 'app-password-reset-confirm',
@@ -31,7 +33,7 @@ export class PasswordResetConfirmComponent {
     }
 
     this.http
-      .post(`http://localhost:8000/api/users/reset-password-confirm/${this.uidb64}/${this.token}/`, {
+      .post(`${environment.apiUrl}api/users/reset-password-confirm/${this.uidb64}/${this.token}/`, {
         password: this.password,
         password2: this.password2,
       })

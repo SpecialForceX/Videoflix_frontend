@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
+
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private baseUrl = 'http://localhost:8000/api/users';
+  private baseUrl = `${environment.apiUrl}api/users`;
 
   constructor(private http: HttpClient) {}
 
@@ -34,12 +36,8 @@ export class AuthService {
       email,
       password,
       password2: password
-    }).pipe(
-      tap((res: any) => {
-        localStorage.setItem('access_token', res.access);
-        localStorage.setItem('refresh_token', res.refresh);
-      })
-    );
+    });
   }
+  
   
 }

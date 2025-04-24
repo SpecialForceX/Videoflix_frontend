@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { environment } from '../../../environments/environment';
+
 
 @Component({
   selector: 'app-password-reset',
@@ -24,7 +26,7 @@ export class PasswordResetComponent {
   }
 
   onSubmit() {
-    this.http.post('http://localhost:8000/api/users/reset-password/', { email: this.email }).subscribe(() => {
+    this.http.post(`${environment.apiUrl}api/users/reset-password/`, { email: this.email }).subscribe(() => {
       this.message = '✅ Reset-Mail wurde versendet.';
     });
   }

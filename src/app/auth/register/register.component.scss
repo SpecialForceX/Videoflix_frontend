@@ -2,12 +2,19 @@
     margin: 0;
     width: 100%;
     height: 100vh;
-    background-image: url('/assets/img/signup_background.jpg');
+    background-image: url('../../../assets/img/signup_background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
 }
+
+.success-message {
+    color: #28a745;
+    font-weight: bold;
+    margin-top: 16px;
+  }
+  
 
 .overlay {
     position: absolute;
@@ -190,7 +197,7 @@ footer {
 @media (max-width: 650px) {
 
     .header_logo {
-        content: url('/assets/img/Logo_short.png');
+        content: url('../../../assets/img/Logo_short.png');
         padding-top: 38px;
         width: 48px !important;
         height: 48px !important;

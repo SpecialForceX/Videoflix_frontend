@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://api.videoflix.de',
-    mediaUrl: 'http://localhost:8000/',
+    apiUrl: 'https://videoflix.patrickbatke.de/',
+    mediaUrl: 'https://videoflix.patrickbatke.de',
   };
