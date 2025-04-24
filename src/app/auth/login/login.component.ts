@@ -43,9 +43,9 @@ export class LoginComponent {
   ngOnInit(): void {
     const activated = this.route.snapshot.queryParamMap.get('activated');
     if (activated === 'true') {
-      this.toastr.success('Dein Account wurde erfolgreich aktiviert.', 'Willkommen zurück!');
+      this.toastr.success('Your account has been successfully activated.', 'Welcome back!');
     } else if (activated === 'false') {
-      this.toastr.error('Aktivierungslink ist ungültig oder abgelaufen.', 'Fehler');
+      this.toastr.error('Activation link is invalid or has expired.', 'Error');
     }
   }
 
